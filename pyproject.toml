@@ -2,4 +2,4 @@
 extend-select = ["C4", "TCH", "SIM"]  # comprehensions, type hints, and simple imports
 ignore = []
 show-fixes = true
-target-version = "py37"
+target-version = "py38"
