@@ -16,6 +16,14 @@ client = Minio(
 )
 
 
+def upload_files(bucket_name: str, local_path: str) -> None:
+    for root, dirs, files in os.walk(local_path):
+        for file in files:
+            print(bucket_name, file, os.path.join(root, file))
+            # client.fput_object(bucket_name, file, os.path.join(root, file))
+            print("Uploaded", file)
+
+
 def download_bucket(bucket_name: str, local_path: str) -> None:
     for item in client.list_objects(bucket_name, recursive=True):
         client.fget_object(bucket_name, item.object_name, os.path.join(local_path, item.object_name))
